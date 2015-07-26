@@ -11,9 +11,9 @@ npm install react-lazyrender-mixin
 
 ## Documentation
 
-The mixin renders a placeholder instead if the actual component of the
+The mixin renders a placeholder instead of the actual component if the
 component is outside the viewport. The placeholder has the same element type as
-the component and will inherit use the component's `className` property.
+the component and will also use the component's `className` property.
 
 ### Props
 
@@ -21,7 +21,8 @@ the component and will inherit use the component's `className` property.
    placeholder. Can be used if the component's style/class doesn't already have
    a height.
  - `placeholderClassName` *(string; optional; default: null)*: An additional
-   class name for the placeholder.
+   class name for the placeholder. Can be used to set height instead of using
+   `placeholderHeight`.
 
 
 ### Example Component
