@@ -23,6 +23,10 @@ the component and will also use the component's `className` property.
  - `placeholderClassName` *(string; optional; default: null)*: An additional
    class name for the placeholder. Can be used to set height instead of using
    `placeholderHeight`.
+ - `topTreshold` *(number; optional; default: 0)*: Additional pixels at the top
+   of the component to determine if it's in the viewport.
+ - `bottomTreshold` *(number; optional; default: 0)*: Additional pixels at the
+   bottom of the component to determine if it's in the viewport.
 
 
 ### Example Component
@@ -37,7 +41,8 @@ export default React.createClass({
 
   getDefaultProps () {
     return {
-      placeholderHeight: 432
+      placeholderHeight: 432,
+      bottomTreshold: 450
     };
   },
 

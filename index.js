@@ -4,7 +4,9 @@ var LazyRenderMixin = {
 
   propTypes: {
     placeholderHeight: React.PropTypes.string,
-    placeholderClassName: React.PropTypes.string
+    placeholderClassName: React.PropTypes.string,
+    topTreshold: React.PropTypes.number,
+    bottomTreshold: React.PropTypes.number
   },
 
   getInitialState: function () {
@@ -20,9 +22,11 @@ var LazyRenderMixin = {
     var elementHeight = bounds.bottom - bounds.top;
     var elementTopEdge = bounds.top + windowTopEdge;
     var elementBottomEdge = elementTopEdge + elementHeight;
+    var topTreshold = this.props.topTreshold || 0;
+    var bottomTreshold = this.props.bottomTreshold || 0;
 
-    var inViewport = (elementTopEdge < windowBottomEdge && 
-                      elementBottomEdge > windowTopEdge);
+    var inViewport = (elementTopEdge < windowBottomEdge + bottomTreshold &&
+                      elementBottomEdge > windowTopEdge - topTreshold);
 
     if (inViewport) {
       this.setState({ inViewport: true });
@@ -54,7 +58,7 @@ var LazyRenderMixin = {
       var classNames = [].concat(this.props.placeholderClassName || [])
         .concat(origRenderObj.props.className)
         .join(' ');
-      
+
       return React.createElement(origRenderObj.type, {
         style: style,
         className: classNames
