@@ -1,6 +1,6 @@
 {
   "name": "react-lazyrender-mixin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lazily render a react component when it enters the viewport",
   "keywords": [
     "mixin",
